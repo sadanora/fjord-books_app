@@ -4,7 +4,7 @@ en:
     common: &common
       show: Show
       edit: Edit
-      new_book: New book
+      new_book: New Book
       back: Back
     index:
       <<: *common

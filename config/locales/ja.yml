@@ -18,7 +18,7 @@ ja:
     new:
       <<: *common
     create:
-      success: 本を作成しました.
+      success: 本を作成しました。
     update:
       success: 本を更新しました。
     destroy:

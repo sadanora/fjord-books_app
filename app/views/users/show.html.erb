@@ -1,33 +1,32 @@
-<h1>アカウント情報</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= "Name" %>:</strong>
+  <strong><%= t('.name') %>:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong><%= "Email" %>:</strong>
+  <strong><%= t('activerecord.attributes.user.email') %>:</strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong><%= "Zipcode" %>:</strong>
+  <strong><%= t('.zipcode') %>:</strong>
   <%= @user.zipcode %>
 </p>
 
 <p>
-  <strong><%= "Address" %>:</strong>
+  <strong><%= t('.address') %>:</strong>
   <%= @user.address %>
 </p>
 
 <p>
-  <strong><%= "Description" %>:</strong>
+  <strong><%= t('.description') %>:</strong>
   <%= @user.description %>
 </p>
 
 <% if @user == current_user %>
-  <%= link_to 'アカウント編集', edit_user_registration_path %>
+  <%= link_to t('.edit_current_user_info'), edit_user_registration_path %>
 <% end %>
 
-<%= link_to "Back", :back %>
+<%= link_to t('views.common.back'), :back %>

@@ -1,11 +1,23 @@
 ja:
+  common: &common
+    name: 名前
+    zipcode: 郵便番号
+    address: 住所
+    description: 自己紹介
+    current_user_info: アカウント情報
+    edit_current_user_info: アカウント編集
   activerecord:
     models:
       book: 本  #g
-
+      user: ユーザー
     attributes:
       book:
         author: 著者  #g
         memo: メモ  #g
         picture: 画像  #g
         title: 題名  #g
+  users:
+    index:
+      <<: *common
+    show:
+      <<: *common

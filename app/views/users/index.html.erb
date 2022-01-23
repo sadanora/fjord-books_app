@@ -1,4 +1,4 @@
-<h1>All users</h1>
+<h1><%= User.model_name.human %></h1>
 
 <ul class="users">
   <% @users.each do |user| %>
@@ -12,10 +12,10 @@
 
 <br>
 
-<%= link_to 'アカウント情報', current_user %>
-<%= link_to 'アカウント編集', edit_user_registration_path %>
+<%= link_to t('.current_user_info'), current_user %>
+<%= link_to t('.edit_current_user_info'), edit_user_registration_path %>
 <%= link_to t('views.common.logout'), destroy_user_session_path, method: :delete %>
 
 <br>
 
-<%= link_to "books", books_path %>
+<%= link_to t(Book.model_name.human), books_path %>

@@ -14,6 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_internal; end
+
   def update_internal; end
 
   # GET /resource/sign_up

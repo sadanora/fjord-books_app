@@ -1,27 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= t('.name') %>:</strong>
+  <strong><%= User.human_attribute_name(:name)  %>:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong><%= t('activerecord.attributes.user.email') %>:</strong>
+  <strong><%= User.human_attribute_name(:email) %>:</strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong><%= t('.zipcode') %>:</strong>
+  <strong><%= User.human_attribute_name(:zipcode) %>:</strong>
   <%= @user.zipcode %>
 </p>
 
 <p>
-  <strong><%= t('.address') %>:</strong>
+  <strong><%= User.human_attribute_name(:address) %>:</strong>
   <%= @user.address %>
 </p>
 
 <p>
-  <strong><%= t('.description') %>:</strong>
+  <strong><%= User.human_attribute_name(:description) %>:</strong>
   <%= @user.description %>
 </p>
 

@@ -14,11 +14,7 @@ ja:
         zipcode: 郵便番号
         address: 住所
         description: 自己紹介
-  common: &common
-    current_user_info: アカウント情報
-    edit_current_user_info: アカウント編集
-  users:
-    index:
-      <<: *common
-    show:
-      <<: *common
+  views:
+    common:
+      current_user_info: アカウント情報
+      edit_current_user_info: アカウント編集

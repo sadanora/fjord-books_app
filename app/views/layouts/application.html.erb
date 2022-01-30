@@ -11,6 +11,8 @@
 
   <body>
     <%= yield %>
-    <%= link_to t('views.common.logout'), destroy_user_session_path, method: :delete %>
+    <% if user_signed_in? %>
+      <%= link_to t('views.common.logout'), destroy_user_session_path, method: :delete %>
+    <% end %>
   </body>
 </html>

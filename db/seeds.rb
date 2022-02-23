@@ -76,4 +76,12 @@ User.order(:id).each.with_index(1) do |user, n|
   user.avatar.attach(io: URI.parse(image_url).open, filename: 'avatar.png')
 end
 
+# ユーザーフォロープラクティスのサンプルデータ作成
+users = User.all
+user  = users.first
+following = users[2..40]
+followers = users[3..30]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
+
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output

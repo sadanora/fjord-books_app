@@ -1,0 +1,22 @@
+<h1><%= @title %></h2>
+
+<table>
+	<tbody>
+		<% if @users.any? %>
+			<% @users.each do |user| %>
+				<tr>
+					<th>
+						<% if user.avatar.attached? %>
+							<%= image_tag user.avatar.variant(resize_to_fill: [30, 30])%>
+						<% end %>
+					</th>
+					<td>
+						<%= link_to user.name, user %>
+					</td>
+				</tr>
+			<% end %>
+		<% end %>
+	</tbody>
+</table>
+
+<%= paginate @users %>

@@ -10,16 +10,14 @@ class UsersController < ApplicationController
   end
 
   def followings
-    @title = 'Followings'
     @user  = User.find(params[:id])
     @users = @user.followings.order(:id).page(params[:page]).with_attached_avatar
-    render 'show_follow'
+    render 'followings'
   end
 
   def followers
-    @title = 'Followers'
     @user  = User.find(params[:id])
     @users = @user.followers.order(:id).page(params[:page]).with_attached_avatar
-    render 'show_follow'
+    render 'followers'
   end
 end

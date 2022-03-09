@@ -1,7 +1,7 @@
 <table>
   <tbody>
-    <% if @users.any? %>
-      <% @users.each do |user| %>
+    <% if users.any? %>
+      <% users.each do |user| %>
         <tr>
           <th>
             <% if user.avatar.attached? %>
@@ -17,5 +17,5 @@
   </tbody>
 </table>
 
-<%= paginate @users %>
+<%= paginate users %>
 <%= link_to t('views.common.back'), user_path %>

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ edit update destroy ]
+  before_action :set_comment, only: %i[edit update destroy]
 
   def edit
     if current_user?(@comment.user)
@@ -15,7 +17,7 @@ class CommentsController < ApplicationController
 
     if current_user?(@comment.user)
       @comment.save
-      redirect_to @commentable, notice: "Comment was successfully created."
+      redirect_to @commentable, notice: 'Comment was successfully created.'
     else
       render @commentable, status: :unprocessable_entity
     end
@@ -24,7 +26,7 @@ class CommentsController < ApplicationController
   def update
     if current_user?(@comment.user)
       @comment.update(comment_params)
-      redirect_to @commentable, notice: "Comment was successfully updated."
+      redirect_to @commentable, notice: 'Comment was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -33,22 +35,23 @@ class CommentsController < ApplicationController
   def destroy
     if current_user?(@comment.user)
       @comment.destroy
-      redirect_to @commentable, notice: "Comment was successfully destroyed."
+      redirect_to @commentable, notice: 'Comment was successfully destroyed.'
     else
       render @commentable, status: :unprocessable_entity
     end
   end
 
   private
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
 
-    def comment_params
-      params.require(:comment).permit(:body)
-    end
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
-    def current_user?(user)
-      user && user == current_user
-    end
+  def comment_params
+    params.require(:comment).permit(:body)
+  end
+
+  def current_user?(user)
+    user && user == current_user
+  end
 end

@@ -8,6 +8,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/1
   def show
+    @reports = Report.order(:id).page(params[:page])
   end
 
   # GET /reports/new
@@ -24,32 +25,26 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
     @report.user_id = current_user.id
 
-    respond_to do |format|
-      if @report.save
-        format.html { redirect_to @report, notice: "Report was successfully created." }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @report.save
+      redirect_to @report, notice: "Report was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /reports/1
   def update
-    respond_to do |format|
-      if @report.update(report_params)
-        format.html { redirect_to @report, notice: "Report was successfully updated." }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @report.update(report_params)
+      redirect_to @report, notice: "Report was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /reports/1
   def destroy
     @report.destroy
-    respond_to do |format|
-      format.html { redirect_to reports_url, notice: "Report was successfully destroyed." }
-    end
+    redirect_to reports_url, notice: "Report was successfully destroyed."
   end
 
   private

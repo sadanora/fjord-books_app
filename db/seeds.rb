@@ -87,7 +87,7 @@ User.order(id: :desc).each do |user|
 end
 
 # 日報の作成
-users = User.where(id: ...20)
+users = User.where(id: ...40)
 users.each do |user|
   user.reports.create!(
     title: Faker::Verb.base,

@@ -86,4 +86,13 @@ User.order(id: :desc).each do |user|
   end
 end
 
+# 日報の作成
+users = User.where(id: ...40)
+users.each do |user|
+  user.reports.create!(
+    title: Faker::Verb.base,
+    body: Faker::Lorem.paragraph(sentence_count: 3)
+  )
+end
+
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output

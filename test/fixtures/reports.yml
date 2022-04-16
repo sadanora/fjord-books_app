@@ -1,5 +1,5 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-report_1:
+report1:
   user: :alice
   title: 今日は晴れ
   content: 公園に行った

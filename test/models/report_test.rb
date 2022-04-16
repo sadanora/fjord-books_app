@@ -6,15 +6,15 @@ class ReportTest < ActiveSupport::TestCase
   setup do
     @alice = users(:alice)
     @bob = users(:bob)
-    @report = reports(:report_1)
+    @report = reports(:report1)
   end
 
-  test "#editable?" do
+  test '#editable?' do
     assert @report.editable?(@alice)
     assert_not @report.editable?(@bob)
   end
 
-  test "#created_on" do
+  test '#created_on' do
     assert_equal @report.created_at.to_date, @report.created_on
   end
 end

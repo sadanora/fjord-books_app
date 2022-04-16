@@ -8,28 +8,20 @@ class UserTest < ActiveSupport::TestCase
     @bob = users(:bob)
   end
 
-  test "#follow" do
+  test '#follow' do
     assert_not @alice.following?(@bob)
     @alice.follow(@bob)
   end
 
-  test "#following" do
-    assert_not @alice.following?(@bob)
-    @alice.follow(@bob)
-    assert @alice.following?(@bob)
-    assert @bob.followed_by?(@alice)
-  end
-
-  test "#unfollow" do
+  test '#following' do
     assert_not @alice.following?(@bob)
     @alice.follow(@bob)
     assert @alice.following?(@bob)
     assert @bob.followed_by?(@alice)
-    @alice.unfollow(@bob)
-    assert_not @alice.following?(@bob)
   end
 
-  test "#followed_by?" do
+  test '#unfollow' do
+    assert_not @alice.following?(@bob)
     @alice.follow(@bob)
     assert @alice.following?(@bob)
     assert @bob.followed_by?(@alice)
@@ -37,7 +29,15 @@ class UserTest < ActiveSupport::TestCase
     assert_not @alice.following?(@bob)
   end
 
-  test "#name_or_email" do
+  test '#followed_by?' do
+    @alice.follow(@bob)
+    assert @alice.following?(@bob)
+    assert @bob.followed_by?(@alice)
+    @alice.unfollow(@bob)
+    assert_not @alice.following?(@bob)
+  end
+
+  test '#name_or_email' do
     user = User.new(email: 'foo@example.com', name: '')
     assert_equal 'foo@example.com', user.name_or_email
     user.name = 'Foo Bar'

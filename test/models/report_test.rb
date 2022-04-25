@@ -6,7 +6,7 @@ class ReportTest < ActiveSupport::TestCase
   setup do
     @alice = users(:alice)
     @bob = users(:bob)
-    @report = reports(:report1)
+    @report = reports(:report_of_alice)
   end
 
   test '#editable?' do
@@ -15,6 +15,7 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test '#created_on' do
-    assert_equal @report.created_at.to_date, @report.created_on
+    @report.created_at = '2022-04-25 10:00:00.000000'
+    assert_equal Date.new(2022, 4, 25), @report.created_on
   end
 end

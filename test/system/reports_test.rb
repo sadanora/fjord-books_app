@@ -60,12 +60,12 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'destroying a Report' do
     visit reports_url
-    assert_selector 'td', text: '今日は晴れ'
+    assert_selector 'td', text: '今日は雨'
     page.accept_confirm do
       click_on '削除'
     end
 
     assert_text '日報が削除されました。'
-    assert_no_selector 'td', text: '今日は晴れ'
+    assert_no_selector 'td', text: '今日は雨'
   end
 end

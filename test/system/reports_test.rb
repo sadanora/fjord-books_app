@@ -12,21 +12,17 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'creating a Report' do
     visit reports_url
-    assert_no_selector 'td', text: '今日は晴れ'
-    assert_no_selector 'td', text: 'alice'
-    assert_no_selector 'td', text: Time.zone.today.strftime('%Y/%m/%d')
+    assert_no_selector 'td', text: '今日はくもり'
 
     click_on '新規作成'
 
-    fill_in 'タイトル', with: '今日は晴れ'
-    fill_in '内容', with: '公園に行った'
+    fill_in 'タイトル', with: '今日はくもり'
+    fill_in '内容', with: '読書をした'
     click_on '登録する'
     assert_text '日報が作成されました。'
 
     visit reports_url
-    assert_selector 'td', text: '今日は晴れ'
-    assert_selector 'td', text: 'alice'
-    assert_selector 'td', text: Time.zone.today.strftime('%Y/%m/%d')
+    assert_selector 'td', text: '今日はくもり'
   end
 
   test 'visiting the index' do
@@ -60,12 +56,12 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'destroying a Report' do
     visit reports_url
-    assert_selector 'td', text: '今日は雨'
+    assert_selector 'td', text: '今日は晴れ'
     page.accept_confirm do
       click_on '削除'
     end
 
     assert_text '日報が削除されました。'
-    assert_no_selector 'td', text: '今日は雨'
+    assert_no_selector 'td', text: '今日は晴れ'
   end
 end

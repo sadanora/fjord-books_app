@@ -13,22 +13,23 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'creating a Book' do
     visit books_url
-    assert_no_selector 'td', text: 'チェリー本'
-    assert_no_selector 'td', text: 'とてもわかりやすい'
-    assert_no_selector 'td', text: '伊藤淳一'
+    assert_no_selector 'td', text: 'ゼロからわかる Ruby 超入門'
+    assert_no_selector 'td', text: 'Rubyの入門に最適な一冊。オブジェクトさんがかわいい。'
+    assert_no_selector 'td', text: '五十嵐邦明'
 
     click_on '新規作成'
 
-    fill_in 'メモ', with: @book.memo
-    fill_in 'タイトル', with: @book.title
+    fill_in 'タイトル', with: 'ゼロからわかる Ruby 超入門'
+    fill_in 'メモ', with: 'Rubyの入門に最適な一冊。オブジェクトさんがかわいい。'
+    fill_in '著者', with: '五十嵐邦明'
     click_on '登録する'
 
     assert_text '本が作成されました。'
 
     visit books_url
-    assert_selector 'td', text: 'チェリー本'
-    assert_selector 'td', text: 'とてもわかりやすい'
-    assert_selector 'td', text: '伊藤淳一'
+    assert_selector 'td', text: 'ゼロからわかる Ruby 超入門'
+    assert_selector 'td', text: 'Rubyの入門に最適な一冊。オブジェクトさんがかわいい。'
+    assert_selector 'td', text: '五十嵐邦明'
   end
 
   test 'visiting the index' do

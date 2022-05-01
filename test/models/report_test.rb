@@ -15,7 +15,7 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test '#created_on' do
-    @report.created_at = '2022-04-25 10:00:00.000000'
+    @report.created_at = '2022-04-25 10:00:00'.in_time_zone
     assert_equal Date.new(2022, 4, 25), @report.created_on
   end
 end

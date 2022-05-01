@@ -13,9 +13,7 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'creating a Book' do
     visit books_url
-    assert_no_selector 'td', text: 'ゼロからわかる Ruby 超入門'
-    assert_no_selector 'td', text: 'Rubyの入門に最適な一冊。オブジェクトさんがかわいい。'
-    assert_no_selector 'td', text: '五十嵐邦明'
+    assert_no_text 'ゼロからわかる Ruby 超入門'
 
     click_on '新規作成'
 
@@ -27,21 +25,17 @@ class BooksTest < ApplicationSystemTestCase
     assert_text '本が作成されました。'
 
     visit books_url
-    assert_selector 'td', text: 'ゼロからわかる Ruby 超入門'
-    assert_selector 'td', text: 'Rubyの入門に最適な一冊。オブジェクトさんがかわいい。'
-    assert_selector 'td', text: '五十嵐邦明'
+    assert_text 'ゼロからわかる Ruby 超入門'
+    assert_text 'Rubyの入門に最適な一冊。オブジェクトさんがかわいい。'
+    assert_text '五十嵐邦明'
   end
 
   test 'visiting the index' do
     visit books_url
     assert_selector 'h1', text: '本'
-    assert_selector 'th', text: 'タイトル'
-    assert_selector 'th', text: 'メモ'
-    assert_selector 'th', text: '著者'
-    assert_selector 'th', text: '画像'
-    assert_selector 'td', text: 'チェリー本'
-    assert_selector 'td', text: 'とてもわかりやすい'
-    assert_selector 'td', text: '伊藤淳一'
+    assert_text 'チェリー本'
+    assert_text 'とてもわかりやすい'
+    assert_text '伊藤淳一'
   end
 
   test 'updating a Book' do

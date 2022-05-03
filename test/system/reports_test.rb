@@ -47,8 +47,6 @@ class ReportsTest < ApplicationSystemTestCase
 
     visit reports_url
     assert_text '今日は雨'
-    assert_text 'alice'
-    assert_text '2022/04/25'
   end
 
   test 'destroying a Report' do

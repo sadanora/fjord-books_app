@@ -30,7 +30,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: '日報'
     assert_text '今日は晴れ'
     assert_text 'alice'
-    assert_text Time.zone.today.strftime('%Y/%m/%d')
+    assert_text '2022/04/25'
   end
 
   test 'updating a Report' do
@@ -48,7 +48,7 @@ class ReportsTest < ApplicationSystemTestCase
     visit reports_url
     assert_text '今日は雨'
     assert_text 'alice'
-    assert_text Time.zone.today.strftime('%Y/%m/%d')
+    assert_text '2022/04/25'
   end
 
   test 'destroying a Report' do

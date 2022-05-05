@@ -29,8 +29,6 @@ class ReportsTest < ApplicationSystemTestCase
     visit reports_url
     assert_selector 'h1', text: '日報'
     assert_text '今日は晴れ'
-    assert_text 'alice'
-    assert_text '2022/04/25'
   end
 
   test 'updating a Report' do

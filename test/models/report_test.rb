@@ -3,7 +3,19 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @alice = users(:alice)
+    @bob = users(:bob)
+    @report = reports(:report_of_alice)
+  end
+
+  test '#editable?' do
+    assert @report.editable?(@alice)
+    assert_not @report.editable?(@bob)
+  end
+
+  test '#created_on' do
+    @report.created_at = '2022-04-25 10:00:00'.in_time_zone
+    assert_equal Date.new(2022, 4, 25), @report.created_on
+  end
 end
